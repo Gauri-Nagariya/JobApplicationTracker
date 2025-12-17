@@ -1,44 +1,78 @@
-import React from "react";
-import { Button, Checkbox, Form, Input, message } from "antd";
+import React, { useContext, useEffect, useState } from "react";
+import {
+  Button,
+  Cascader,
+  DatePicker,
+  Form,
+  Input,
+  InputNumber,
+  Mentions,
+  Segmented,
+  Select,
+  TreeSelect,
+  message,
+} from "antd";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+// const { RangePicker } = DatePicker;
+import profileImage from "../assets/profileImage.jpg";
 import { AuthContext } from "../context/AuthContext";
-
-const Register = () => {
-  const navigate = useNavigate();
-  const { register } = useContext(AuthContext);
+import Password from "antd/es/input/Password";
 
 
-const onFinish = async (values) => {
-  try {
-    await register(values);   // 🔑 central auth logic
-    message.success("Registered successfully");
-    navigate("/profile");
-  } catch (error) {
-    message.error("Registration failed");
+const Settings = () => {
+
+    const [form] = Form.useForm();
+    //   const navigate = useNavigate();
+      const { updateUser, user  } = useContext(AuthContext);
+//   const [loading, setLoading] = useState(true);
+
+
+useEffect(() => {
+  if (user) {
+    form.setFieldsValue({
+      username: user.username,
+    //   email: user.email,
+    //   Password: user.Password,
+    });
   }
-};
+}, [user, form]);
 
+
+
+ const onFinish = async (values) => {
+    // Remove empty fields
+    const payload = {};
+    if (values.username) payload.username = values.username;
+    if (values.password) payload.password = values.password;
+
+    if (Object.keys(payload).length === 0) {
+      return message.warning("Nothing to update");
+    }
+
+    try {
+      await updateUser(payload);
+      message.success("Updated successfully");
+      form.resetFields(["password"]); // clear password field
+    } catch (error) {
+      message.error("Update failed");
+    }
+  };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
 
-  return (
-    <div className="flex flex-row items-center">
-      <div className="w-full h-screen py-[20vh] text-[#388087]">
-        <p className="text-5xl font-bold px-20 pt-20 leading-normal">
-          One Place To Track All Your Oppotunity{" "}
-        </p>
-        <p className="text-lg px-20 py-4">No more table and raws</p>
-      </div>
-      <div className="min-h-screen w-screen flex items-center justify-center">
+
+return (
+    <div className="flex justify-center items-center">
+      <div className="my-20">
         <div className="w-120 px-10 py-12">
           {/* Title */}
           <h1 className="text-center text-2xl font-bold tracking-widest text-[#388087] mb-10 py-2 px-6 border rounded-t-md">
-            REGISTER
+            UPDATE YOUR CREDENTIALS
           </h1>
 
           <Form 
+           form={form}
             layout="vertical"
             name="basic"
             labelCol={{ span: 8 }}
@@ -53,7 +87,7 @@ const onFinish = async (values) => {
               // label="Username"
               name="username"
               rules={[
-                { required: true, message: "Please input your username!" },
+                { required: true, message: "Please input your new username!" },
               ]}
             >
               <Input
@@ -62,21 +96,12 @@ const onFinish = async (values) => {
               />
             </Form.Item>
 
-            <Form.Item
-              // label="Email"
-              name="email"
-              rules={[{ required: true, message: "Please input your email!" }]}            >
-             <Input
-                placeholder="email"
-                className="h-10 !w-92 !mx-4 !mb-2 items-center rounded-md hover:!border-[#388087]"
-              />
-            </Form.Item>
-
+    
             {/* Password */}
             <Form.Item
               name="password"
               rules={[
-                { required: true, message: "Please input your password!" },
+                { required: true, message: "Please input your new password!" },
               ]}
             >
               <Input.Password
@@ -91,22 +116,14 @@ const onFinish = async (values) => {
                 htmlType="submit"
                 className="!h-12 !w-92 !mx-4 !border-2 !border-[#388087] !text-[#388087] !text-2xl !font-bold !py-2 !px-6 rounded-md !hover:bg-[#5f9ea0]"
               >
-                Submit
+                SAVE
               </Button>
             </Form.Item>
-
-              <p className="text-center !text-[#388087] py-2">Already have an account?</p>
-             <a
-          onClick={() => navigate("/login")}
-          className="mx-[12vw] !text-[#388087] cursor-pointer !hover:underline"
-        >
-          LOGIN
-        </a>
-
           </Form>
         </div>
       </div>
     </div>
   );
-};
-export default Register;
+}
+
+export default Settings
