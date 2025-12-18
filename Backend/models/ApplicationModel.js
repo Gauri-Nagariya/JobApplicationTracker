@@ -34,10 +34,21 @@ const applicationSchema = new mongoose.Schema(
 
     status: {
       type: String,
-      enum: ["Applied", "Interview", "Offer", "Rejected"],
+      enum: ["Saved", "Applied","Shortlisted", "Interview Scheduled", "Offer", "Rejected"],
       default: "Applied",
     },
 
+     salaryRange: {
+    min: {
+      type: Number,
+      required: true,
+    },
+    max: {
+      type: Number,
+      required: true,
+    },
+  },
+  
     applicationDate: {
       type: Date,
       default: Date.now,
@@ -49,10 +60,46 @@ const applicationSchema = new mongoose.Schema(
       required: false,
     },
 
+    applicationLink: {
+      type: String,
+      trim: true,
+      match: [
+        /^(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/,
+        "Please enter a valid URL",
+      ],
+    },
+
+    CompanyCareerPage: {
+      type: String,
+      trim: true,
+      match: [
+        /^(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/,
+        "Please enter a valid URL",
+      ],
+    },
+
+    PortfolioGitHubLinkedIn: {
+      type: String,
+      trim: true,
+      match: [
+        /^(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/,
+        "Please enter a valid URL",
+      ],
+    },
+
     notes: {
       type: String,
       required: false,
       trim: true,
+    },
+
+    resume: {
+      fileId: {
+        type: mongoose.Schema.Types.ObjectId,
+      },
+      fileName: String,
+      fileType: String,
+      fileSize: Number,
     },
   },
   { timestamps: true }

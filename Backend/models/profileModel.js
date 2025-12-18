@@ -14,7 +14,7 @@ const profileSchema = mongoose.Schema(
     },
     phone: {
       type: Number,
-      required: true,
+      required: false,
     },
     location: {
       type: String,
@@ -22,13 +22,16 @@ const profileSchema = mongoose.Schema(
     },
     currentRole: {
       type: String,
-      required: true,
+      required: false,
     },
     experienceLevel: {
       type: String,
       enum: ["Fresher", "Junior", "Mid", "Senior"],
+      required: false,
     },
-    skills: [String],
+    skills:{type: [String],
+      required: false,
+    }
   },
   { timestamps: true }
 );

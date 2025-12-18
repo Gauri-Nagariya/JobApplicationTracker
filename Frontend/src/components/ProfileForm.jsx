@@ -147,9 +147,9 @@ const ProfileForm = () => {
             <Form.Item
               label="phone"
               name="phone"
-              rules={[
-                { required: true, message: "Please enter your phone number!" },
-              ]}
+              // rules={[
+              //   { required: true, message: "Please enter your phone number!" },
+              // ]}
             >
               <InputNumber
                 placeholder="Phone"
@@ -168,9 +168,9 @@ const ProfileForm = () => {
             <Form.Item
               label="Location"
               name="location"
-              rules={[
-                { required: true, message: "Please enter your location!" },
-              ]}
+              // rules={[
+              //   { required: true, message: "Please enter your location!" },
+              // ]}
             >
               <Input
                 placeholder="City, State"
@@ -208,9 +208,9 @@ const ProfileForm = () => {
             <Form.Item
               label="Experience Level"
               name="experienceLevel"
-              rules={[
-                { required: true, message: "Please select experience level" },
-              ]}
+              // rules={[
+              //   { required: true, message: "Please select experience level" },
+              // ]}
             >
               <Select
                 placeholder="Select experience level"
@@ -227,9 +227,9 @@ const ProfileForm = () => {
             <Form.Item
               label="Skills"
               name="skills"
-              rules={[
-                { required: true, message: "Please add at least one skill" },
-              ]}
+              // rules={[
+              //   { required: true, message: "Please add at least one skill" },
+              // ]}
             >
               <Select
                 mode="tags"

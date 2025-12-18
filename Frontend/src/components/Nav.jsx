@@ -18,6 +18,9 @@ const Nav = () => {
       <ul className="flex gap-12 text-lg text-[#F6F6F2] items-center">
         {user && (
           <>
+           <li>
+              <Link to="/Dashboard">Dashboard</Link>
+            </li>
             <li>
               <Link to="/applications">Applications</Link>
             </li>
@@ -55,6 +58,9 @@ const Nav = () => {
 
         {!user && (
           <>
+           <li>
+              <Link to="/Dashboard">Dashboard</Link>
+            </li>
             <li>
               <Link to="/applications">Applications</Link>
             </li>
