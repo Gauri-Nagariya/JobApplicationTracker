@@ -14,7 +14,7 @@ const ProfileCompletion = ({ items }) => {
   useEffect(() => {
     if (!user) return;
 
-    fetch(`${backendURL}/profile/completion`, {
+    fetch(`${backendURL}/api/profile/completion`, {
       method: "GET",
       credentials: "include",
       headers: {
@@ -35,7 +35,7 @@ const ProfileCompletion = ({ items }) => {
 useEffect(() => {
   console.log("Fetching profile...");
 
-  fetch(`${backendURL}/profile`, {
+  fetch(`${backendURL}/api/profile`, {
     credentials: "include",
   })
     .then(res => {

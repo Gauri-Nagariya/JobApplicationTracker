@@ -42,11 +42,11 @@ app.use(cookieParser());
 const PORT = process.env.PORT;
 connectDB();
 
-app.use('/', userRoute)
-app.use('/', auth, homeRoute)
-app.use('/', auth, profileRoute)
-app.use('/', auth, ApplicationRoute)
-app.use('/', DocumentRoute)
+app.use('/api', userRoute)
+app.use('/api', auth, homeRoute)
+app.use('/api', auth, profileRoute)
+app.use('/api', auth, ApplicationRoute)
+app.use('/api', DocumentRoute)
 
 
 app.listen(PORT, ()=>{

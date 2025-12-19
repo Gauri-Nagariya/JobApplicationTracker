@@ -17,7 +17,7 @@ const SourceAndStrategy = () => {
   useEffect(() => {
   if (!user) return;
 
-  fetch(`${backendURL}/applications`, { credentials: "include" })
+  fetch(`${backendURL}/api/applications`, { credentials: "include" })
     .then(res => res.json())
     .then(data => {
       console.log("Applications fetched:", data); // check the structure

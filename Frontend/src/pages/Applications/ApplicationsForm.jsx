@@ -200,8 +200,8 @@ const ApplicationsForm = () => {
 
       const method = id ? "PUT" : "POST";
       const url = id
-        ? `${backendURL}/applications/${id}`
-        : `${backendURL}/applications`;
+        ? `${backendURL}/api/applications/${id}`
+        : `${backendURL}/api/applications`;
 
       const response = await fetch(url, {
         method,
@@ -232,7 +232,7 @@ const ApplicationsForm = () => {
           formData.append("coverLetter", values.coverLetter[0].originFileObj);
         formData.append("applicationId", applicationId);
 
-        const uploadResponse = await fetch(`${backendURL}/upload-docs`, {
+        const uploadResponse = await fetch(`${backendURL}/api/upload-docs`, {
           method: "POST",
           body: formData,
           credentials: "include",

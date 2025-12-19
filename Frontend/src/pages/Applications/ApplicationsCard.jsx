@@ -498,7 +498,7 @@ const ApplicationsCard = () => {
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        const res = await fetch(`${backendURL}/applications`, { credentials: "include" });
+        const res = await fetch(`${backendURL}/api/applications`, { credentials: "include" });
         const data = await res.json();
         setApplications(data.applications);
       } catch (error) {
@@ -567,7 +567,7 @@ const ApplicationsCard = () => {
 
     const handleConfirmDelete = async (id) => {
   try {
-    const res = await fetch(`${backendURL}/applications/delete/${id}`, {
+    const res = await fetch(`${backendURL}/api/applications/delete/${id}`, {
       method: "DELETE",
       credentials: "include",
     });

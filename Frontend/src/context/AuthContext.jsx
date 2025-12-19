@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
   const checkAuth = async () => {
     try {
       const res = await axios.get(
-        `${backendURL}/me`,
+        `${backendURL}/api/me`,
         { withCredentials: true } // 🔑 sends cookie
       );
 
@@ -35,7 +35,7 @@ const AuthProvider = ({ children }) => {
 
   // 2️⃣ Login function
   const login = async (data) => {
-    await axios.post(`${backendURL}/login`, data, {
+    await axios.post(`${backendURL}/api/login`, data, {
       withCredentials: true,
     });
     await checkAuth(); // refresh user state
@@ -43,7 +43,7 @@ const AuthProvider = ({ children }) => {
 
   // 3️⃣ Register function
   const register = async (data) => {
-    await axios.post(`${backendURL}/register`, data, {
+    await axios.post(`${backendURL}/api/register`, data, {
       withCredentials: true,
     });
     await checkAuth();
@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
   // 4️⃣ Logout function
   const logout = async () => {
     await axios.post(
-      `${backendURL}/logout`,
+      `${backendURL}/api/logout`,
       {},
       { withCredentials: true }
     );
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
   //UPDATE FUNCTION 
  const updateUser = async (values) => {
   try {
-    const response = await axios.put(`${backendURL}/update`, values, {
+    const response = await axios.put(`${backendURL}/api/update`, values, {
       withCredentials: true,
     });
       setUser(response.data.user); 

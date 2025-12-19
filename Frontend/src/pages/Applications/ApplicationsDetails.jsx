@@ -125,7 +125,7 @@ const ApplicationDetails = () => {
     // 1️⃣ Fetch application details
     const fetchApplication = async () => {
       try {
-        const res = await fetch(`${backendURL}/applications/${id}`, {
+        const res = await fetch(`${backendURL}/api/applications/${id}`, {
           credentials: "include",
         });
         const data = await res.json();
@@ -138,7 +138,7 @@ const ApplicationDetails = () => {
     // 2️⃣ Fetch uploaded files
     const fetchFiles = async () => {
       try {
-        const res = await fetch(`${backendURL}/upload-docs/${id}`, {
+        const res = await fetch(`${backendURL}/api/upload-docs/${id}`, {
           credentials: "include",
         });
         const data = await res.json();

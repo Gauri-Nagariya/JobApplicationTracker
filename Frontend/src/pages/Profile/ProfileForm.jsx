@@ -35,7 +35,7 @@ const ProfileForm = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch(`${backendURL}/profile`, {
+        const res = await fetch(`${backendURL}/api/profile`, {
           method: "GET",
           credentials: "include",
         });
@@ -57,7 +57,7 @@ const ProfileForm = () => {
 
   const onFinish = async (values) => {
     try {
-      const response = await fetch(`${backendURL}/profile`, {
+      const response = await fetch(`${backendURL}/api/profile`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
