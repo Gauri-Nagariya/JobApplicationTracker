@@ -14,9 +14,12 @@ import {
 } from "antd";
 import { useNavigate } from "react-router-dom";
 // const { RangePicker } = DatePicker;
-import profileImage from "../assets/profileImage.jpg";
-import { AuthContext } from "../context/AuthContext";
+import profileImage from "../../assets/profileImage.jpg";
+import { AuthContext } from "../../context/AuthContext";
 import Password from "antd/es/input/Password";
+import "../../index.css";
+import bgDashboard from "../../assets/bg2.jpg";
+import star from "../../assets/stars.avif";
 
 
 const Settings = () => {
@@ -63,16 +66,20 @@ useEffect(() => {
 
 
 return (
-    <div className="flex justify-center items-center">
-      <div className="my-20">
-        <div className="w-120 px-10 py-12">
+ <div
+      className="h-screen w-full bg-cover bg-center bg-fixed flex items-start overflow-hidden"
+      style={{ backgroundImage: `url(${bgDashboard})` }}
+    >
+            <div className="glass pt-28 h-screen w-full flex justify-center">
+        <div className="w-130 px-10 py-12">
           {/* Title */}
-          <h1 className="text-center text-2xl font-bold tracking-widest text-[#388087] mb-10 py-2 px-6 border rounded-t-md">
+          <h1 className="text-center text-2xl font-bold tracking-widest text-white/90 mb-10 py-2 px-6 border-b-2 rounded-t-md">
             UPDATE YOUR CREDENTIALS
           </h1>
 
           <Form 
            form={form}
+            className="[&_.ant-form-item-label>label]:!text-white [&_.ant-form-item-label>label]:!text-lg"
             layout="vertical"
             name="basic"
             labelCol={{ span: 8 }}
@@ -84,7 +91,7 @@ return (
             autoComplete="off">
             {/* Username */}
             <Form.Item
-              // label="Username"
+              label="Username"
               name="username"
               rules={[
                 { required: true, message: "Please input your new username!" },
@@ -92,13 +99,28 @@ return (
             >
               <Input
                 placeholder="username"
-                className="h-10 !w-92 !mx-4 !mb-2 items-center rounded-md hover:!border-[#388087]"
-              />
+className="
+                  !w-110
+                  !text-lg
+                  !mb-4
+      !bg-transparent
+      !border-0
+      !border-b
+      !border-white/50
+      !rounded-none
+      !text-white
+      placeholder:!text-white/60
+      placeholder:!text-sm
+      focus:!border-white/100
+      hover:!border-white/100
+      focus:!shadow-none
+    "              />
             </Form.Item>
 
     
             {/* Password */}
             <Form.Item
+              label="Password"
               name="password"
               rules={[
                 { required: true, message: "Please input your new password!" },
@@ -106,21 +128,36 @@ return (
             >
               <Input.Password
                 placeholder="password"
-                className="h-10 !w-92 !mx-4 !mb-2 items-center rounded-md hover:!border-[#388087]"
-              />
+className="
+                  !w-110
+                  !text-lg
+      !bg-transparent
+      !border-0
+      !border-b
+      !border-white/50
+      !rounded-none
+      !text-white
+      placeholder:!text-white/60
+      placeholder:!text-sm
+      focus:!border-white/100
+      hover:!border-white/100
+      focus:!shadow-none
+    "              />
             </Form.Item>
 
             {/* Submit Button */}
             <Form.Item>
               <Button
                 htmlType="submit"
-                className="!h-12 !w-92 !mx-4 !border-2 !border-[#388087] !text-[#388087] !text-2xl !font-bold !py-2 !px-6 rounded-md !hover:bg-[#5f9ea0]"
+                  className="!h-10 !w-110 !border !border-white/50 !text-white/90 !text-xl !font-bold !py-2 !my-6 !rounded-md !bg-white/30 hover:!bg-transparent
+    hover:!shadow-[0_0_20px_rgba(255,255,255,0.2),0_0_30px_rgba(255,255,255,0.1)]"
               >
                 SAVE
               </Button>
             </Form.Item>
           </Form>
         </div>
+        
       </div>
     </div>
   );

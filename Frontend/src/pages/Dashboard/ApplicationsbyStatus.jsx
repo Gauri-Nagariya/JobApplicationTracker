@@ -7,7 +7,8 @@ import {
   TrophyOutlined,
   FireOutlined,
 } from "@ant-design/icons";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
+
 
 const ApplicationsByStatus = () => {
 

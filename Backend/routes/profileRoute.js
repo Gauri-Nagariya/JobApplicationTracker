@@ -44,6 +44,9 @@ console.log("USER:", req.user);
       currentRole,
       experienceLevel,
       skills,
+      Portfolio,
+      GitHub,
+      LinkedIn,
     } = req.body;
 
     const profile = await userProfile.findOneAndUpdate(
@@ -56,6 +59,9 @@ console.log("USER:", req.user);
         currentRole,
         experienceLevel,
         skills,
+         Portfolio,
+      GitHub,
+      LinkedIn
       },
       {
         new: true,
@@ -80,6 +86,9 @@ const profileFields = [
   'currentRole',
   'experienceLevel',
   'skills',
+   'Portfolio',
+      'GitHub',
+      'LinkedIn'
 ];
 
 function calculateProfileCompletion(profile) {

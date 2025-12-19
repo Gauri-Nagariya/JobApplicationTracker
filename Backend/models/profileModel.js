@@ -31,7 +31,31 @@ const profileSchema = mongoose.Schema(
     },
     skills:{type: [String],
       required: false,
-    }
+    },
+    Portfolio: {
+      type: String,
+      trim: true,
+      match: [
+        /^(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/,
+        "Please enter a valid URL",
+      ],
+    },
+     GitHub: {
+      type: String,
+      trim: true,
+      match: [
+        /^(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/,
+        "Please enter a valid URL",
+      ],
+    },
+     LinkedIn: {
+      type: String,
+      trim: true,
+      match: [
+        /^(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/,
+        "Please enter a valid URL",
+      ],
+    },
   },
   { timestamps: true }
 );

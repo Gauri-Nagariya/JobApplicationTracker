@@ -5,6 +5,7 @@ import userRoute from './routes/userRoute.js'
 import homeRoute from './routes/homeRoute.js'
 import profileRoute from './routes/profileRoute.js'
 import ApplicationRoute from './routes/ApplicationRoute.js'
+import DocumentRoute from './routes/DocumentRoute.js'
 import auth from './middlewares/auth.js'
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -30,6 +31,7 @@ app.use('/', userRoute)
 app.use('/', auth, homeRoute)
 app.use('/', auth, profileRoute)
 app.use('/', auth, ApplicationRoute)
+app.use('/', DocumentRoute)
 
 
 app.listen(PORT, ()=>{

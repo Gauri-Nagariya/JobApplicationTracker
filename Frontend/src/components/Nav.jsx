@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import userImageGif from "../assets/icons8-user.gif";
 import userImageStatic from "../assets/icons8-user-48.png";
 import { AuthContext } from "../context/AuthContext";
+import "../index.css";
+
 
 const Nav = () => {
   const { user, logout } = useContext(AuthContext);
@@ -10,67 +12,62 @@ const Nav = () => {
 
 
   return (
-    <nav className="bg-[#388087] flex justify-between px-8 py-2 absolute w-full">
-      <h1 className="text-2xl text-[#F6F6F2] font-bold flex items-center">
-        Job Application Tracker
-      </h1>
+    <nav className="backdrop-blur-md bg-black/40  border-none flex justify-between px-8 py-2 fixed w-full z-50">
+  <h1 className="text-2xl text-[#F6F6F2] font-bold flex items-center">
+    Job Application Tracker
+  </h1>
 
-      <ul className="flex gap-12 text-lg text-[#F6F6F2] items-center">
-        {user && (
-          <>
-           <li>
-              <Link to="/Dashboard">Dashboard</Link>
-            </li>
-            <li>
-              <Link to="/applications">Applications</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
-            {/* <li>
-              <button onClick={logout} className="cursor-pointer">
-                Logout
-              </button>
-            </li> */}
-            {/* <li className="flex flex-row border w-40 h-fit"> */}
-<li className="flex items-center gap-2  text-white text-lg whitespace-nowrap cursor-pointer">
-              Hi! {user.username || "User"}
-              <div className="w-1/2 flex justify-center items-center">
-                <div className="group relative w-[90%] overflow-hidden rounded-2xl">
-                  {/* Static image */}
-                  <img
-                    src={userImageStatic}
-                    alt="Profile Illustration"
-                    className="w-full h-full object-cover rounded-2xl group-hover:opacity-0 transition-opacity duration-200"
-                  />
+  <ul className="flex gap-12 text-lg text-[#F6F6F2] items-center">
+    {user && (
+      <>
+        <li>
+          <Link to="/Dashboard">Dashboard</Link>
+        </li>
+        <li>
+          <Link to="/applications">Applications</Link>
+        </li>
+        <li>
+          <Link to="/profile">Profile</Link>
+        </li>
+        <li className="flex items-center gap-2  text-white text-lg whitespace-nowrap cursor-pointer">
+          Hi! {user.username || "User"}
+          <div className="w-1/2 flex justify-center items-center">
+            <div className="group relative w-[90%] overflow-hidden rounded-2xl">
+              {/* Static image */}
+              <img
+                src={userImageStatic}
+                alt="Profile Illustration"
+                className="w-full h-full object-cover rounded-2xl group-hover:opacity-0 transition-opacity duration-200"
+              />
 
-                  {/* Animated GIF */}
-                  <img
-                    src={userImageGif}
-                    alt="Profile Illustration Animated"
-                    className="absolute inset-0 w-full h-full object-cover rounded-4xl opacity-0 group-hover:opacity-90 transition-opacity duration-80"
-                  />
-                </div>
-              </div>
-            </li>
-          </>
-        )}
+              {/* Animated GIF */}
+              <img
+                src={userImageGif}
+                alt="Profile Illustration Animated"
+                className="absolute inset-0 w-full h-full object-cover rounded-4xl opacity-0 group-hover:opacity-90 transition-opacity duration-80"
+              />
+            </div>
+          </div>
+        </li>
+      </>
+    )}
 
-        {!user && (
-          <>
-           <li>
-              <Link to="/Dashboard">Dashboard</Link>
-            </li>
-            <li>
-              <Link to="/applications">Applications</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
-          </>
-        )}
-      </ul>
-    </nav>
+    {!user && (
+      <>
+        <li>
+          <Link to="/Dashboard">Dashboard</Link>
+        </li>
+        <li>
+          <Link to="/applications">Applications</Link>
+        </li>
+        <li>
+          <Link to="/profile">Profile</Link>
+        </li>
+      </>
+    )}
+  </ul>
+</nav>
+
   );
 };
 

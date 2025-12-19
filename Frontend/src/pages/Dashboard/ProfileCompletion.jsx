@@ -1,6 +1,6 @@
 import { Progress, Rate, Card } from "antd";
 import React, { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const ProfileCompletion = ({ items }) => {
   const { user } = useContext(AuthContext);
@@ -75,7 +75,7 @@ if (!profile.user.location || profile.user.location.trim() === "") {
 
 if (!profile.user.currentRole || profile.user.currentRole.trim() === "") {
   missing.push({
-    id: 2,
+    id: 3,
     name: "currentRole",
     description: "Add your Current Role",
     link: "/profile#currentRole",
@@ -84,7 +84,7 @@ if (!profile.user.currentRole || profile.user.currentRole.trim() === "") {
 
 if (!profile.user.experienceLevel || profile.user.experienceLevel.trim() === "") {
   missing.push({
-    id: 2,
+    id: 4,
     name: "Experience Level",
     description: "Add your Experience Level",
     link: "/profile#experienceLevel",
@@ -94,15 +94,38 @@ if (!profile.user.experienceLevel || profile.user.experienceLevel.trim() === "")
 // SKILLS → array length check
 if (!Array.isArray(profile.user.skills) || profile.user.skills.length === 0) {
   missing.push({
-    id: 3,
+    id: 5,
     name: "Skills",
     description: "Add your skills",
     link: "/profile#skills",
   });
 }
 
+if (!profile.user.Portfolio || profile.user.Portfolio.trim() === "") {
+  missing.push({
+    id: 6,
+    name: "Portfolio Link",
+    description: "Add your Portfolio Link",
+    link: "/profile#experienceLevel",
+  });
+}
+
 setMissingProfileItems(missing);
-      console.log("missing data:", missing);
+    if (!profile.user.GitHub || profile.user.GitHub.trim() === "") {
+  missing.push({
+    id: 7,
+    name: "GitHub Link",
+    description: "Add your GitHub Link",
+    link: "/profile#GitHub",
+  });
+}if (!profile.user.LinkedIn || profile.user.LinkedIn.trim() === "") {
+  missing.push({
+    id: 8,
+    name: "LinkedIn Link",
+    description: "Add your LinkedIn Link",
+    link: "/profile#LinkedIn",
+  });
+}  console.log("missing data:", missing);
 
 
     //   setMissingProfileItems(missing);
@@ -137,9 +160,9 @@ setMissingProfileItems(missing);
 
 {/* Missing Profile Items */}
 <div className="p-4 bg-white shadow rounded-md w-full">
-  <h2 className="text-xl font-semibold mb-4">
+  {/* <h2 className="text-xl font-semibold mb-4">
     Complete Your Profile
-  </h2>
+  </h2> */}
 
   {missingProfileItems.length === 0 ? (
     <p className="text-sm text-green-600">

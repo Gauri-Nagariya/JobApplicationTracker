@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";   // ✅ import useState
 import { Link, Outlet } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
+import "../../index.css";
+
 
 const Profile = () => {
   const { logout } = useContext(AuthContext);
@@ -12,9 +14,10 @@ const Profile = () => {
   };
 
   return (
-    <div>
-      <nav className="bg-[#eeeee2] h-26 w-full">
-        <ul className="flex gap-8 px-8 pt-18 text-[#388087] font-semibold">
+    <div className="glass">
+      {/* <div className="bg-black/90 backdrop-blur-md h-28 w-full"> */}
+      <div className="w-full bg-transparent backdrop-blur-none fixed top-0 z-40">
+        <ul className="flex gap-8 px-8 pt-18 text-white/90 font-semibold">
           <li>
             <Link to="">Profile</Link>
           </li>
@@ -30,27 +33,30 @@ const Profile = () => {
             </button>
           </li>
         </ul>
-      </nav>
+      </div>
 
       {/* 🔥 LOGOUT CONFIRMATION MODAL */}
       {showConfirm && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-80 text-center">
-            <p className="text-lg font-semibold text-[#388087] mb-4">
+        <div className="glass fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+          <div className=" border w-100 h-60 p-10 text-center 
+           rounded-2xl p-8
+          bg-white/6 shadow-2xl
+    transition-all duration-300 hover:shadow-[0_0_18px_rgba(255,255,255,0.2),0_0_10px_rgba(255,255,255,0.1)]">
+            <p className="text-2xl py-2 font-bold font-semibold text-whhite/90 mb-4">
               Are you sure you want to logout?
             </p>
 
             <div className="flex justify-center gap-6">
               <button
                 onClick={handleLogout}
-                className="px-4 py-2 bg-[#388087] text-white rounded-md hover:opacity-90  cursor-pointer"
+                className="px-4 py-2 bg-white/90 text-black rounded-md hover:opacity-80  cursor-pointer"
               >
                 Yes
               </button>
 
               <button
                 onClick={() => setShowConfirm(false)}
-                className="px-4 py-2 border border-[#388087] text-[#388087] rounded-md hover:bg-gray-100 cursor-pointer"
+                className="px-4 py-2 border border-white-90 text-white/90 rounded-md hover:bg-white/10 cursor-pointer"
               >
                 No
               </button>

@@ -3,19 +3,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./pages/Home";
-import Profile from "./pages/Profile";
+import Profile from "./pages/Profile/Profile";
 import Nav from "./components/Nav";
 import ProtectedRoute from "./context/ProtectedRoute";
-import ProfileForm from "./components/ProfileForm";
-import Settings from "./components/Settings";
-import ApplicationsForm from "./components/ApplicationsForm";
-import Applications from "./pages/Applications";
-import ApplicationsCard from "./components/ApplicationsCard";
-import ApplicationsDetails from "./components/ApplicationsDetails";
-import Dashboard from "./pages/Dashboard";
-import ProfileCompletion from "./components/ProfileCompletion";
-import ApplicationsbyStatus from "./components/ApplicationsbyStatus";
-import SourceAndStrategy from "./components/SourceAndStrategy";
+import ProfileForm from "./pages/Profile/ProfileForm";
+import Settings from "./pages/Profile/Settings";
+import ApplicationsForm from "./pages/Applications/ApplicationsForm";
+import Applications from "./pages/Applications/Applications";
+import ApplicationsCard from "./pages/Applications/ApplicationsCard";
+import ApplicationsDetails from "./pages/Applications/ApplicationsDetails";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import ProfileCompletion from "./pages/Dashboard/ProfileCompletion";
+import ApplicationsbyStatus from "./pages/Dashboard/ApplicationsbyStatus";
+import SourceAndStrategy from "./pages/Dashboard/SourceAndStrategy";
 
 function App() {
   return (
