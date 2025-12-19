@@ -18,15 +18,25 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(cors({
-  // origin: "http://localhost:5173", // frontend URL
-   origin: [
-      "http://localhost:5173",
-      "https://job-application-tracker-ruby-ten.vercel.app",
-      "https://your-frontend-domain.com",
-    ],
-  credentials: true
-}));
+
+const allowedOrigins = [
+  "https://job-application-tracker-ruby-ten.vercel.app",
+  "http://localhost:5173", // keep for local dev
+];
+
+app.use( cors({
+    origin: function (origin, callback) {
+      // allow Postman / server-to-server
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  }));
 app.use(cookieParser());
 
 const PORT = process.env.PORT;
