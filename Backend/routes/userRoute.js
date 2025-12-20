@@ -191,11 +191,11 @@ router.post(
  
 //-------------------------------AUTH CHECK---------------------
 
-router.get("/me", auth, (req, res) => {
-  res.status(200).json({
-    user: req.user
-  });
-});
+// router.get("/", auth, (req, res) => {
+//   res.status(200).json({
+//     user: req.user
+//   });
+// });
 
 // ---------------------------LOGOUT-------------------------------
 router.post("/logout", (req, res) => {
