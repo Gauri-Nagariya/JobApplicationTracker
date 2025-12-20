@@ -5,7 +5,7 @@ import { message } from "antd";
 // Create context
 export const AuthContext = createContext();
 
-const backendURL = import.meta.env.VITE_BACKEND_URL;
+const backendURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";;
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null); // stores logged-in user
@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
   const checkAuth = async () => {
     try {
       const res = await axios.get(
-        `${backendURL}/api/me`,
+        `${backendURL}/me`,
         { withCredentials: true } // 🔑 sends cookie
       );
 
@@ -35,7 +35,7 @@ const AuthProvider = ({ children }) => {
 
   // 2️⃣ Login function
   const login = async (data) => {
-    await axios.post(`${backendURL}/api/login`, data, {
+    await axios.post(`${backendURL}/login`, data, {
       withCredentials: true,
     });
     await checkAuth(); // refresh user state
@@ -43,7 +43,7 @@ const AuthProvider = ({ children }) => {
 
   // 3️⃣ Register function
   const register = async (data) => {
-    await axios.post(`${backendURL}/api/register`, data, {
+    await axios.post(`${backendURL}/register`, data, {
       withCredentials: true,
     });
     await checkAuth();
@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
   // 4️⃣ Logout function
   const logout = async () => {
     await axios.post(
-      `${backendURL}/api/logout`,
+      `${backendURL}/logout`,
       {},
       { withCredentials: true }
     );
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
   //UPDATE FUNCTION 
  const updateUser = async (values) => {
   try {
-    const response = await axios.put(`${backendURL}/api/update`, values, {
+    const response = await axios.put(`${backendURL}/update`, values, {
       withCredentials: true,
     });
       setUser(response.data.user); 

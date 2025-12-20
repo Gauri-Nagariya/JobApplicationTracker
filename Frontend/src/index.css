@@ -2,6 +2,8 @@
 
 body{
   color: white;
+  background-color:#080328;
+  /* opacity: 0.6; */
 }
 
 /* :root {
@@ -24,7 +26,7 @@ body {
 
 .glass {
   background: rgba(0, 0, 0, 0.58);           /* softer transparency */
-  backdrop-filter: blur(19px);                     /* smoother blur */
+  backdrop-filter: blur(30px);                     /* smoother blur */
   -webkit-backdrop-filter: blur(15px);             /* Safari support */
   /* border-radius: 20px;                             slightly larger radius for modern look */
   /* border: 1px solid rgba(255, 255, 255, 0.25);    soft subtle border */
@@ -48,7 +50,7 @@ body {
   /* font-size: 2rem; */
   /* font-weight: 600; */
   /* margin-bottom: 1rem; */
-  text-shadow: 0 0 2px #c6c6c688, 0 0 8px #bdbbbb55; 
+  text-shadow: 0 0 1px #c6c6c688, 0 0 2px #bdbbbb55; 
 }
 
 .ant-input-password-icon {
@@ -80,3 +82,63 @@ body {
 }
 
 
+/* .salary-range-wrapper input, */
+/* .salary-range-wrapper .ant-input, */
+.salary-range-wrapper .ant-input-number
+/* .salary-range-wrapper .ant-input-number-input */
+ {
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  border-radius: 0 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+/* Placeholder */
+.salary-range-wrapper input::placeholder,
+.salary-range-wrapper .ant-input::placeholder,
+.salary-range-wrapper .ant-input-number-input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 0.875rem;
+}
+
+/* Hover */
+.salary-range-wrapper .ant-input:hover,
+.salary-range-wrapper .ant-input-number:hover {
+  border-color: rgba(255, 255, 255, 1) !important;
+}
+
+/* Focus */
+.salary-range-wrapper .ant-input:focus,
+.salary-range-wrapper .ant-input-number-focused {
+  border-color: rgba(255, 255, 255, 1) !important;
+  box-shadow: none !important;
+}
+
+.salary-range-wrapper .ant-input-number-input {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+.salary-range-wrapper span {
+  color: #ffffff !important;
+}
+
+.range-wrapper .ant-input-number-input{
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+.ant-menu-dark.ant-menu-inline .ant-menu-item:hover,
+.ant-menu-dark.ant-menu-inline .ant-menu-submenu-title:hover {
+  background-color: rgba(128, 128, 128, 0.2) !important; /* Semi-transparent grey */
+  color: white !important;
+}
+
+/* Optional: change the color when a menu item is actually clicked/selected */
+.ant-menu-dark.ant-menu-inline .ant-menu-item-selected {
+  background-color: rgba(128, 128, 128, 0.4) !important;
+}

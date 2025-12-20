@@ -16,37 +16,43 @@ dotenv.config();
 const app = express();
 
 
-app.use(express.json());
+app.use(express.json({limit:"10mb"}));
 app.use(express.urlencoded({extended:true}));
 
-const allowedOrigins = [
-  "https://job-application-tracker-ruby-ten.vercel.app",
-  "http://localhost:5173", // keep for local dev
-];
+// const allowedOrigins = [
+//   "https://job-application-tracker-ruby-ten.vercel.app",
+//   "http://localhost:5173", // keep for local dev
+// ];
 
-app.use( cors({
-    origin: function (origin, callback) {
-      // allow Postman / server-to-server
-      if (!origin) return callback(null, true);
+// app.use( cors({
+//     origin: function (origin, callback) {
+//       // allow Postman / server-to-server
+//       if (!origin) return callback(null, true);
 
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  }));
+//       if (allowedOrigins.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//     credentials: true,
+//   }));
+
+app.use(cors({
+  origin: "http://localhost:5173", // your frontend URL
+  credentials: true, // if you send cookies/auth
+}));
+
 app.use(cookieParser());
 
 const PORT = process.env.PORT;
 connectDB();
 
-app.use('/api', userRoute)
-app.use('/api', auth, homeRoute)
-app.use('/api', auth, profileRoute)
-app.use('/api', auth, ApplicationRoute)
-app.use('/api', DocumentRoute)
+app.use('/', userRoute)
+app.use('/', auth, homeRoute)
+app.use('/', auth, profileRoute)
+app.use('/', auth, ApplicationRoute)
+app.use('/', DocumentRoute)
 
 
 app.listen(PORT, ()=>{

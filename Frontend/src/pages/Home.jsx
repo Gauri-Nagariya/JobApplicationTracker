@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../index.css";
 import { Link } from "react-router-dom";
 import bgDashboard from "../assets/bg3.jpg";
+import { use } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const Home = () => {
+   const { user, logout } = useContext(AuthContext);
+    console.log("Nav user:", user);
   return (
     <div
       style={{
@@ -40,7 +44,30 @@ const Home = () => {
 
           {/* Right side: button */}
           <div className="flex flex-col w-[50vw] py-60 h-full items-center">
-            <Link
+            {use && (
+              <>
+               <Link
+              to="/profile"
+              className="
+    relative inline-block w-fit my-2 px-8 py-4 rounded-full
+    bg-white text-black font-semibold
+    border border-white
+    transition-all duration-300 in-ease-out
+    hover:scale-102
+    hover:-rotate-4
+    hover:shadow-[0_0_12px_rgba(56,128,135,0.6),0_0_30px_rgba(56,128,135,0.4)]
+    hover:border-[#fbfeff]
+  
+  "
+            >
+              GET STARTED ➜
+            </Link>
+              </>
+            )}
+
+            {!user && (
+              <>
+               <Link
               to="/register"
               className="
     relative inline-block w-fit my-2 px-8 py-4 rounded-full
@@ -56,6 +83,9 @@ const Home = () => {
             >
               GET STARTED ➜
             </Link>
+              </>
+            )}
+           
 
             <a
               href="#about"

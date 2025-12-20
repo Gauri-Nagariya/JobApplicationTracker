@@ -55,7 +55,22 @@ const applicationSchema = new mongoose.Schema(
     },
     appliedVia: {
       type: String,
-      enum: ["LinkedIn", "Company Site", "Referral", "Indeed", "Other"],
+enum: [
+  "LinkedIn",
+  "Company Website",
+  "Referral",
+  "Indeed",
+  "Glassdoor",
+  "Naukri",
+  "AngelList",
+  "Wellfound",
+  "Internshala",
+  "Campus Placement",
+  "Recruiter Outreach",
+  "Job Fair",
+  "Cold Email",
+  "Other",
+],
       required: false,
     },
     applicationLink: {

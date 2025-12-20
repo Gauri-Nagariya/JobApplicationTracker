@@ -12,7 +12,7 @@ const Nav = () => {
 
 
   return (
-    <nav className="backdrop-blur-md bg-black/40  border-none flex justify-between px-8 py-2 fixed w-full z-50">
+    <nav className="backdrop-blur-md bg-[rgba(211,50,50,0.03)]  flex justify-between px-8 py-2 fixed w-full z-50">
   <h1 className="text-2xl text-[#F6F6F2] font-bold flex items-center">
     Job Application Tracker
   </h1>
@@ -20,6 +20,9 @@ const Nav = () => {
   <ul className="flex gap-12 text-lg text-[#F6F6F2] items-center">
     {user && (
       <>
+      <li>
+          <Link to="/">Home</Link>
+        </li>
         <li>
           <Link to="/Dashboard">Dashboard</Link>
         </li>
@@ -37,14 +40,7 @@ const Nav = () => {
               <img
                 src={userImageStatic}
                 alt="Profile Illustration"
-                className="w-full h-full object-cover rounded-2xl group-hover:opacity-0 transition-opacity duration-200"
-              />
-
-              {/* Animated GIF */}
-              <img
-                src={userImageGif}
-                alt="Profile Illustration Animated"
-                className="absolute inset-0 w-full h-full object-cover rounded-4xl opacity-0 group-hover:opacity-90 transition-opacity duration-80"
+                className="w-full h-full object-cover rounded-2xl"
               />
             </div>
           </div>

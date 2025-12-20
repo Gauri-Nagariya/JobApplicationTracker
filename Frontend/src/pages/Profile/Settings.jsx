@@ -68,9 +68,9 @@ useEffect(() => {
 return (
  <div
       className="h-screen w-full bg-cover bg-center bg-fixed flex items-start overflow-hidden"
-      style={{ backgroundImage: `url(${bgDashboard})` }}
+      // style={{ backgroundImage: `url(${bgDashboard})` }}
     >
-            <div className="glass pt-28 h-screen w-full flex justify-center">
+            <div className="pt-28 h-screen w-full flex justify-center">
         <div className="w-130 px-10 py-12">
           {/* Title */}
           <h1 className="text-center text-2xl font-bold tracking-widest text-white/90 mb-10 py-2 px-6 border-b-2 rounded-t-md">

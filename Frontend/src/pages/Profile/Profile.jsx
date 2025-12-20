@@ -14,17 +14,17 @@ const Profile = () => {
   };
 
   return (
-    <div className="glass">
+    <div>
       {/* <div className="bg-black/90 backdrop-blur-md h-28 w-full"> */}
-      <div className="w-full bg-transparent backdrop-blur-none fixed top-0 z-40">
+      <div className="w-full backdrop-blur-none top-0 z-40 h-26 ">
         <ul className="flex gap-8 px-8 pt-18 text-white/90 font-semibold">
-          <li>
+          <li className="bg-white/30 rounded py-1 px-4 hover:!bg-transparent hover:!shadow-[0_0_20px_rgba(255,255,255,0.1),0_0_10px_rgba(255,255,255,0.1)]">
             <Link to="">Profile</Link>
           </li>
-          <li>
+          <li className="bg-white/30 rounded py-1 px-4 hover:!bg-transparent hover:!shadow-[0_0_20px_rgba(255,255,255,0.1),0_0_10px_rgba(255,255,255,0.1)]">
             <Link to="settings">Settings</Link>
           </li>
-          <li>
+          <li className="bg-white/30 rounded py-1 px-4 hover:!bg-transparent hover:!shadow-[0_0_20px_rgba(255,255,255,0.1),0_0_10px_rgba(255,255,255,0.1)]">
             <button
               onClick={() => setShowConfirm(true)}
               className="cursor-pointer"
@@ -37,7 +37,7 @@ const Profile = () => {
 
       {/* 🔥 LOGOUT CONFIRMATION MODAL */}
       {showConfirm && (
-        <div className="glass fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+        <div className="glass min-h-screen fixed inset-0 bg-black/60 flex items-center justify-center z-50">
           <div className=" border w-100 h-60 p-10 text-center 
            rounded-2xl p-8
           bg-white/6 shadow-2xl

@@ -114,6 +114,7 @@ router.post("/applications", async (req, res) => {
  * UPDATE application
  */
 router.put("/applications/:id", async (req, res) => {
+    console.log("PUT HIT:", req.params.id);
   try {
     const application = await Application.findOneAndUpdate(
       { _id: req.params.id, user: req.user.id },
@@ -137,6 +138,8 @@ router.put("/applications/:id", async (req, res) => {
 //-----------------------------------getting perticular application-----------------------------
 
 router.get("/applications/:id", async (req, res) => {
+    console.log("GET /applications/:id hit", req.params.id, "user:", req.user);
+
   try {
     const application = await Application.findOne({
       _id: req.params.id,

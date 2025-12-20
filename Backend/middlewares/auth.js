@@ -2,6 +2,8 @@
 import jwt from 'jsonwebtoken';
 
 function auth(req, res, next) {
+    console.log("Auth middleware hit, cookies:", req.cookies);
+
   const token = req.cookies?.token;
   if (!token) {
     return res.status(401).send("unauthorized");
@@ -12,6 +14,7 @@ function auth(req, res, next) {
     //console.log("Token to verify:", token);
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    console.log("Decoded token:", decoded);
 
     req.user = decoded; //it has value that is passed to generate token at the begining
     next();

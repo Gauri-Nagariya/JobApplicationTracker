@@ -72,17 +72,21 @@ const Dashboard = () => {
   } = theme.useToken();
 
   return (
-    <Layout style={{ minHeight: '100vh', paddingTop: "60px" }}>
+    <div>
+      <div>
+
+    <Layout style={{ minHeight: '100vh', paddingTop: "60px" , backgroundColor: "transparent"}}>
       <Sider
         trigger={null}
         collapsible
         collapsed={collapsed}
-        style={{ background: "#ffffff", paddingTop:"4px" }}
+        style={{ backgroundColor: "transparent", paddingTop:"4px" }}
       >
-        <div className="demo-logo-vertical" />
+        <div className="[&_.ant-menu-item:hover]:!bg-white/30 [&_.ant-menu-submenu-title:hover]:!bg-white/30"/>
         <Menu
-          theme="light"
+          theme="dark"
           mode="inline"
+          style={{ backgroundColor: "transparent"}}
           selectedKeys={[location.pathname]}
           onClick={({ key }) => navigate(key)}
           items={[
@@ -104,21 +108,21 @@ const Dashboard = () => {
           ]}
         />
       </Sider>
-      <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }}>
-          <Button
+      <Layout style={{backgroundColor: "#080328"}}>
+        {/* <Header style={{ padding: 0, background: "red" }}> */}
+          {/* <Button
             type="text"
             icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
             onClick={() => setCollapsed(!collapsed)}
             style={{ fontSize: 16, width: 64, height: 64 }}
-          />
-        </Header>
+          /> */}
+        {/* </Header> */}
         <Content
           style={{
             margin: '24px 16px',
             padding: 24,
             minHeight: 280,
-            background: colorBgContainer,
+            background: "#080328",
             borderRadius: borderRadiusLG,
           }}
         >
@@ -127,6 +131,9 @@ const Dashboard = () => {
         </Content>
       </Layout>
     </Layout>
+    </div>
+    </div>
+
   );
 };
 
