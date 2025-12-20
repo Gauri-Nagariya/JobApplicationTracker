@@ -110,7 +110,7 @@ const ApplicationsCard = () => {
   const [applications, setApplications] = useState([]);
   const [filters, setFilters] = useState({
     status: [],
-    jobLocation: [],
+    jobType: [],
     appliedVia: [],
   });
   const [searchTerm, setSearchTerm] = useState("");
@@ -193,8 +193,8 @@ const ApplicationsCard = () => {
       if (filters.status.length && !filters.status.includes(app.status))
         return false;
       if (
-        filters.jobLocation.length &&
-        !filters.jobLocation.includes(app.jobLocation)
+        filters.jobType.length &&
+        !filters.jobType.includes(app.jobType)
       )
         return false;
       if (
