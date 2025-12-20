@@ -68,10 +68,16 @@ router.post(
       { expiresIn: "7d" }
     );
 
+    // res.cookie("token", token, {
+    //   httpOnly: true,
+    //   secure: process.env.NODE_ENV === "production",
+    // });
+
     res.cookie("token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-    });
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",
+  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+});
 
     // res.json(user);
     // res.redirect("/home");
@@ -165,17 +171,30 @@ router.post(
     if (!isMatch) {
       return res.status(400).send("user or password must be incorrect");
     }
-    const token = jwt.sign(
-      {
-        id: user._id,
-        email: user.email,
-        username: user.username,
-      },
-      process.env.JWT_SECRET,
-      { expiresIn: "1d" }
-    );
+    // const token = jwt.sign(
+    //   {
+    //     id: user._id,
+    //     email: user.email,
+    //     username: user.username,
+    //   },
+    //   process.env.JWT_SECRET,
+    //   { expiresIn: "1d" }
+    // );
 
-    res.cookie("token", token);
+    const token = jwt.sign(
+  { id: user._id },
+  process.env.JWT_SECRET,
+  { expiresIn: "1d" }
+);
+
+    // res.cookie("token", token);
+
+    res.cookie("token", token, {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",
+  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+});
+
     // res.send('logged in')
     // res.redirect("/home");
     res.status(200).json({
@@ -191,11 +210,11 @@ router.post(
  
 //-------------------------------AUTH CHECK---------------------
 
-// router.get("/", auth, (req, res) => {
-//   res.status(200).json({
-//     user: req.user
-//   });
-// });
+router.get("/me", auth, (req, res) => {
+  res.status(200).json({
+    user: req.user
+  });
+});
 
 // ---------------------------LOGOUT-------------------------------
 router.post("/logout", (req, res) => {

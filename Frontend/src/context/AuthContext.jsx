@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
   const checkAuth = async () => {
     try {
       const res = await axios.get(
-        `${backendURL}`,
+        `${backendURL}/me`,
         { withCredentials: true } // 🔑 sends cookie
       );
 
