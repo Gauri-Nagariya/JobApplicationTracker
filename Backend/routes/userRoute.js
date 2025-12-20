@@ -73,10 +73,16 @@ router.post(
     //   secure: process.env.NODE_ENV === "production",
     // });
 
-    res.cookie("token", token, {
+//     res.cookie("token", token, {
+//   httpOnly: true,
+//   secure: process.env.NODE_ENV === "production",
+//   sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+// });
+
+res.cookie("token", token, {
   httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
-  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+  secure: true,      // 🔥 FORCE TRUE on Render
+  sameSite: "none",  // 🔥 REQUIRED for cross-site
 });
 
     // res.json(user);
@@ -189,10 +195,16 @@ router.post(
 
     // res.cookie("token", token);
 
-    res.cookie("token", token, {
+//     res.cookie("token", token, {
+//   httpOnly: true,
+//   secure: process.env.NODE_ENV === "production",
+//   sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+// });
+
+res.cookie("token", token, {
   httpOnly: true,
-  secure: process.env.NODE_ENV === "production",
-  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+  secure: true,      // 🔥 FORCE TRUE on Render
+  sameSite: "none",  // 🔥 REQUIRED for cross-site
 });
 
     // res.send('logged in')
@@ -217,8 +229,18 @@ router.get("/me", auth, (req, res) => {
 });
 
 // ---------------------------LOGOUT-------------------------------
+// router.post("/logout", (req, res) => {
+//   res.clearCookie("token");
+//   res.status(200).json({ message: "Logged out" });
+// });
+
 router.post("/logout", (req, res) => {
-  res.clearCookie("token");
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+  });
+
   res.status(200).json({ message: "Logged out" });
 });
 
