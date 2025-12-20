@@ -22,8 +22,9 @@ import "../../index.css";
 import bgDashboard from "../../assets/bg2.jpg";
 
 const tagOptions = [
-  { label: "Interview", value: "Interview" },
+  { label: "Saved", value: "Saved" },
   { label: "Applied", value: "Applied" },
+  { label: "Interview", value: "Interview" },
   { label: "Remote", value: "Remote" },
   { label: "Onsite", value: "Onsite" },
   { label: "LinkedIn", value: "LinkedIn" },
@@ -247,19 +248,34 @@ const ApplicationsCard = () => {
             <div className="flex gap-3 py-4">
               <FilterDropdown
                 title="Status"
-                options={["Applied", "Interview"]}
+                options={["Saved","Applied","Shortlisted", "Interview","Offer","Rejected"]}
                 category="status"
               />
               <FilterDropdown
                 title="Job Type"
-                options={["Remote", "Onsite"]}
+                options={["Remote", "Full-time","Part-time", "Internship","Contract" ]}
                 category="jobLocation"
               />
-              <FilterDropdown
-                title="Applied Via"
-                options={["LinkedIn"]}
-                category="appliedVia"
-              />
+             <FilterDropdown
+  title="Applied Via"
+  category="appliedVia"
+  options={[
+    "LinkedIn",
+    "Company Website",
+    "Referral",
+    "Indeed",
+    "Glassdoor",
+    "Naukri",
+    "Wellfound",
+    "Internshala",
+    "Recruiter Outreach",
+    "Campus Placement",
+    "Job Fair",
+    "Cold Email",
+    "Other",
+  ]}
+/>
+
             </div>
 
             {/* Search */}
