@@ -13,7 +13,7 @@ const ProfileForm = () => {
   const { user } = useContext(AuthContext);
   const [form] = Form.useForm();
   const navigate = useNavigate();
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   const backendURL = import.meta.env.VITE_BACKEND_URL;
 
@@ -129,11 +129,11 @@ const ProfileForm = () => {
                 rules={[
                   { required: true, message: "Please select your role!" },
                 ]}
-                getValueFromEvent={(value) => value?.slice(-1)}
+                // getValueFromEvent={(value) => value?.slice(-1)}
               >
                 <Select
                   // placeholder="Select your role"
-                  mode="tags"
+                  // mode="tags"
                   // maxTagCount={1}
                   placeholder="Select or type your role"
                   allowClear
