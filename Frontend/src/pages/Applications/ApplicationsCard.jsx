@@ -254,7 +254,7 @@ const ApplicationsCard = () => {
               <FilterDropdown
                 title="Job Type"
                 options={["Remote", "Full-time","Part-time", "Internship","Contract" ]}
-                category="jobLocation"
+                category="jobType"
               />
              <FilterDropdown
   title="Applied Via"
