@@ -20,7 +20,8 @@ app.use(express.json({limit:"10mb"}));
 app.use(express.urlencoded({extended:true}));
 
 const allowedOrigins = [
-  "https://job-application-tracker-ruby-ten.vercel.app",
+  // "https://job-application-tracker-ruby-ten.vercel.app",
+  "https://job-application-tracker-nwn0zjqs4-gauris-projects-0309a127.vercel.app",
   "http://localhost:5173", // keep for local dev
 ];
 
