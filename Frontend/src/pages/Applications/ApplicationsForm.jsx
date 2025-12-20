@@ -209,7 +209,9 @@ const ApplicationsForm = () => {
       message: "Please select or enter a job title",
     },
   ]}
-               getValueFromEvent={(value) => value?.slice(-1)}
+              getValueFromEvent={(value) =>
+    Array.isArray(value) ? value[value.length - 1] : value
+  }
 >
   <Select
     mode="tags"
