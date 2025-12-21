@@ -496,3 +496,4 @@ hover:!shadow-[0_0_20px_rgba(255,255,255,0.1),0_0_10px_rgba(255,255,255,0.1)]  "
 };
 
 export default ApplicationsForm;
+

@@ -67,13 +67,15 @@ useEffect(() => {
 
 return (
  <div
-      className="h-screen w-full bg-cover bg-center bg-fixed flex items-start overflow-hidden"
+      className="md:h-140 w-full bg-cover bg-center bg-fixed flex items-start overflow-hidden"
       // style={{ backgroundImage: `url(${bgDashboard})` }}
     >
-            <div className="pt-28 h-screen w-full flex justify-center">
-        <div className="w-130 px-10 py-12">
+            <div className="pt-18 h-screen w-full flex justify-center">
+        <div className=" md:px-0 px-6 pr-6 md:py-12 w-full max-w-md md:w-130
+        py-10 
+        ">
           {/* Title */}
-          <h1 className="text-center text-2xl font-bold tracking-widest text-white/90 mb-10 py-2 px-6 border-b-2 rounded-t-md">
+          <h1 className="text-center md:text-2xl text-xl font-bold tracking-widest text-white/90 mb-10 py-2 md:px-6 border-b-2 rounded-t-md">
             UPDATE YOUR CREDENTIALS
           </h1>
 
@@ -100,7 +102,7 @@ return (
               <Input
                 placeholder="username"
 className="
-                  !w-110
+                  md:!w-110
                   !text-lg
                   !mb-4
       !bg-transparent
@@ -149,7 +151,7 @@ className="
             <Form.Item>
               <Button
                 htmlType="submit"
-                  className="!h-10 !w-110 !border !border-white/50 !text-white/90 !text-xl !font-bold !py-2 !my-6 !rounded-md !bg-white/30 hover:!bg-transparent
+                  className="!h-10 md:!w-110 !w-72 !border !border-white/50 !text-white/90 !text-xl !font-bold !py-2 !my-6 !rounded-md !bg-white/30 hover:!bg-transparent
     hover:!shadow-[0_0_20px_rgba(255,255,255,0.2),0_0_30px_rgba(255,255,255,0.1)]"
               >
                 SAVE

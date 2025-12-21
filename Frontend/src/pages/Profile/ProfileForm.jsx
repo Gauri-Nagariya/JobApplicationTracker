@@ -71,20 +71,20 @@ const ProfileForm = () => {
       // style={{ backgroundImage: `url(${bgDashboard})` }}
     >
       <div className=" pt-8 h-auto w-full">
-        <h1 className="text-3xl w-screen text-white font-bold mb-0 text-center">
+        <h1 className="md:text-3xl md:w-screen text-white font-bold md:mb-0 pl-8 mt-4 text-center">
           CREATE YOUR PROFILE
         </h1>
 
-        <div className="flex flex-row  px-0 h-auto">
+        <div className="flex justify-center px-0 h-auto">
           {/* LEFT FORM */}
-          <div className="flex px-0 py-10 w-full h-auto">
+          <div className="flex  md:px-20 justify-center px-8 py-10 w-full h-auto">
             <Form
               form={form}
               className="[&_.ant-form-item-label>label]:!text-white [&_.ant-form-item-label>label]:!text-lg"
               layout="horizontal"
-              labelCol={{ span: 8 }}
+              labelCol={{ span: 6 }}
               wrapperCol={{ span: 20 }}
-              style={{ width: 800, maxWidth: "100%", margin: "0 260px" }}
+              style={{ width: 800, maxWidth: "100%", margin: "0 200px" }}
               initialValues={{ remember: true }}
               onFinish={onFinish}
               autoComplete="off"
@@ -247,7 +247,7 @@ const ProfileForm = () => {
               <Form.Item>
                 <Button
                   htmlType="submit"
-                  className="!h-10 !w-128 !border !ml-70 !border-white/50 !text-white/90 !text-xl !font-bold !py-2 !rounded-md !bg-transparent !bg-white/30 hover:!bg-transparent
+                  className="!h-10 md:!w-128 !w-70 !border md:!ml-50 !border-white/50 !text-white/90 !text-xl !font-bold !py-2 !rounded-md !bg-transparent !bg-white/30 hover:!bg-transparent
     hover:!shadow-[0_0_20px_rgba(255,255,255,0.1),0_0_10px_rgba(255,255,255,0.1)]"
                 >
                   SAVE
@@ -255,9 +255,6 @@ const ProfileForm = () => {
               </Form.Item>
             </Form>
           </div>
-
-          {/* RIGHT FORM */}
-         
         </div>
       </div>
     </div>
