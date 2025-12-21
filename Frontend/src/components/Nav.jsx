@@ -90,7 +90,8 @@ const Nav = () => {
     <div className="flex justify-between items-center">
       {/* Title */}
       <h1 className="text-xl text-[#F6F6F2] font-semibold md:font-bold md:text-2xl">
-        Job Application Tracker
+        {/* Job Application Tracker */}
+        CareerBoard
       </h1>
 
       {/* ===== DESKTOP NAV (INLINE) ===== */}

@@ -303,7 +303,7 @@ const Home = () => {
             </h2>
 
             <p className="text-white/90 leading-relaxed text-xl">
-              The Job Application Tracker is a centralized platform built to
+              The CareerBoard is a centralized platform built to
               simplify and organize the entire job search process. Instead of
               managing multiple spreadsheets, notes, and emails, users can
               store, track, and update all job applications in one secure place.
