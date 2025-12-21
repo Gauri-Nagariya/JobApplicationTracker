@@ -142,3 +142,26 @@ body {
 .ant-menu-dark.ant-menu-inline .ant-menu-item-selected {
   background-color: rgba(128, 128, 128, 0.4) !important;
 }
+
+
+/* REDUCE TOP & BOTTOM PADDING */
+.mobile-top-menu .ant-menu-item {
+  padding: 0 12px !important;   /* left-right */
+  height: 44px !important;     /* controls top-bottom */
+  line-height: 44px !important;
+}
+
+/* HOVER BACKGROUND */
+.mobile-top-menu .ant-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* SELECTED BACKGROUND */
+.mobile-top-menu .ant-menu-item-selected {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* REMOVE BOTTOM BORDER */
+.mobile-top-menu.ant-menu-horizontal > .ant-menu-item::after {
+  border-bottom: none !important;
+}

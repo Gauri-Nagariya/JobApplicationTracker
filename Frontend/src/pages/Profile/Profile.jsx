@@ -109,12 +109,12 @@ const Profile = () => {
 
       {/* 🔥 LOGOUT CONFIRMATION MODAL */}
       {showConfirm && (
-        <div className="glass min-h-screen fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+        <div className="glass min-h-screen fixed inset-0 bg-black/80 flex items-center justify-center z-50">
           <div
-            className=" border w-100 h-60 p-10 text-center 
+           className=" border w-100 md:h-60 p-10 text-center 
            rounded-2xl mx-10
           bg-white/6 shadow-2xl
-    transition-all duration-300 hover:shadow-[0_0_18px_rgba(255,255,255,0.2),0_0_10px_rgba(255,255,255,0.1)]"
+            transition-all duration-300 hover:shadow-[0_0_18px_rgba(255,255,255,0.2),0_0_10px_rgba(255,255,255,0.1)]"
           >
             <p className="text-2xl py-2 font-bold font-semibold text-whhite/90 mb-4">
               Are you sure you want to logout?
