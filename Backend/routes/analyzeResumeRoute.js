@@ -17,7 +17,8 @@ const upload = multer({
 
 router.use(
   cors({
-    origin: "http://localhost:5173",
+    // origin: "http://localhost:5173",
+     origin: "https://job-application-tracker-peach-seven.vercel.app",
     credentials: true,
   })
 );
