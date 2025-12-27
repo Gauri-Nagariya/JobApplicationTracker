@@ -427,22 +427,22 @@ const tagOptions = [
 ];
 
 const items = [
-  { label: "oldest - newest", key: "dateO", icon: <UserOutlined /> },
-  { label: "Company Name (A → Z)", key: "companyA", icon: <UserOutlined /> },
-  { label: "Company Name (Z → A)", key: "companyZ", icon: <UserOutlined /> },
+  { label: "oldest - newest", key: "dateO"},
+  { label: "Company Name (A → Z)", key: "companyA"},
+  { label: "Company Name (Z → A)", key: "companyZ"},
   {
     label: "newest - oldest",
     key: "dateN",
-    icon: <UserOutlined />,
-    danger: true,
+    // icon: <UserOutlined />,
+    // danger: true,
   },
-  {
-    label: "4th menu item",
-    key: "4",
-    icon: <UserOutlined />,
-    danger: true,
-    disabled: true,
-  },
+  // {
+  //   label: "4th menu item",
+  //   key: "4",
+  //   icon: <UserOutlined />,
+  //   danger: true,
+  //   disabled: true,
+  // },
 ];
 
 const ApplicationCard = ({ app, navigate, confirmDelete }) => {
