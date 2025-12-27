@@ -165,3 +165,43 @@ body {
 .mobile-top-menu.ant-menu-horizontal > .ant-menu-item::after {
   border-bottom: none !important;
 }
+
+
+/* Step item title (text) */
+.custom-steps .ant-steps-item-title {
+  color: white; /* make step text white */
+}
+
+/* Step circle (icon) default */
+.custom-steps .ant-steps-item-icon {
+  border: 2px solid white; /* circle border */
+  background-color: rgb(144, 144, 144) !important;
+  color: white !important;             /* icon color */
+}
+
+/* Current step circle */
+.custom-steps .ant-steps-item-process .ant-steps-item-icon {
+  background-color: #1890ff !important; /* Ant Design primary blue */
+  border-color: #1890ff;
+  color: white;
+}
+
+/* Completed step circle (optional) */
+.custom-steps .ant-steps-item-finish .ant-steps-item-icon {
+  background-color: #1890ff !important;
+  border-color: #1890ff;
+  color: white;
+}
+
+.custom-steps .ant-steps-item-tail {
+  background-color: white !important;   /* make the connector line visible */
+  height: 2px;               /* thickness of the line */
+  top: 15px;                 /* align with circle center */
+  position: absolute;
+  width: 100%;
+}
+
+.custom-steps .ant-steps-item-tail::after {
+  background-color: white !important;
+}
+

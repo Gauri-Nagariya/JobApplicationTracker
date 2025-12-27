@@ -107,6 +107,9 @@ const Nav = () => {
             <li>
               <Link to="/applications">Applications</Link>
             </li>
+             <li>
+              <Link to="/Resume">Resume Checker</Link>
+            </li>
             <li>
               <Link to="/profile">Profile</Link>
             </li>

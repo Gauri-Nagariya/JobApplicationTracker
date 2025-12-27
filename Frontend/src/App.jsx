@@ -121,6 +121,8 @@ const SourceAndStrategy = lazy(() =>
   import("./pages/Dashboard/SourceAndStrategy")
 );
 
+const ResumePage = lazy(() => import("./pages/Resume/resumePage"));
+
 // 🔄 Simple loader
 const Loader = () => (
   <div className="flex items-center justify-center min-h-screen text-white">
@@ -158,6 +160,25 @@ function App() {
               path="SourceAndStrategy"
               element={<SourceAndStrategy />}
             />
+          </Route>
+
+          <Route
+            path="/Resume"
+            element={
+              <ProtectedRoute>
+                <ResumePage />
+              </ProtectedRoute>
+            }
+          >
+            {/* <Route index element={<ProfileCompletion />} />
+            <Route
+              path="ApplicationsbyStatus"
+              element={<ApplicationsbyStatus />}
+            />
+            <Route
+              path="SourceAndStrategy"
+              element={<SourceAndStrategy />}
+            /> */}
           </Route>
 
           {/* Profile */}
