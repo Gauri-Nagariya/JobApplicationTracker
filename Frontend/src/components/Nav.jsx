@@ -170,6 +170,9 @@ const Nav = () => {
                 Applications
               </Link>
             </li>
+             <li>
+              <Link to="/Resume">Resume Checker</Link>
+            </li>
             <li>
               <Link to="/profile" onClick={() => setMenuOpen(false)}>
                 Profile
