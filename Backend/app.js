@@ -57,10 +57,12 @@ const corsOptions = {
     if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+       console.log("Blocked by CORS:", origin); // Debug
       callback(new Error("Not allowed by CORS"));
     }
   },
-  credentials: true,
+ credentials: true,
+  optionsSuccessStatus: 200, // Some legacy browsers choke without this
 };
 
 app.use(cors(corsOptions));
