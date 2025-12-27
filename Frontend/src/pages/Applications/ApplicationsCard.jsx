@@ -427,9 +427,9 @@ const tagOptions = [
 ];
 
 const items = [
-  { label: "oldest - newest", key: "dateO"},
   { label: "Company Name (A → Z)", key: "companyA"},
   { label: "Company Name (Z → A)", key: "companyZ"},
+  { label: "oldest - newest", key: "dateO"},
   {
     label: "newest - oldest",
     key: "dateN",
