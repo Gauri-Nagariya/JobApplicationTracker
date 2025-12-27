@@ -742,7 +742,7 @@ const ApplicationsCard = () => {
 
         {/* Delete Modal */}
         {deleteAppId && (
-          <div className="glass min-h-screen fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+          <div className="glass min-h-screen fixed inset-0 bg-black/90 flex items-center justify-center z-50">
             <div
               className=" border w-100 md:h-60 p-10 text-center 
            rounded-2xl mx-10
