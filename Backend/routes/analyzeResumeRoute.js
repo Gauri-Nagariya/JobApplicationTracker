@@ -82,6 +82,15 @@ router.post("/analyze-resume", upload.single("resume"), async (req, res) => {
   try {
     const { jobDescription } = req.body;
     const file = req.file;
+    const MIN_JD_LENGTH = 100; // characters
+
+    if (!jobDescription || jobDescription.trim().length < MIN_JD_LENGTH) {
+  return res.status(400).json({
+    success: false,
+    message:
+      "Job description is too short. Please paste a complete job description for accurate analysis."
+  });
+}
 
     if (!file || !jobDescription) {
       return res.status(400).json({
@@ -117,6 +126,15 @@ router.post("/analyze-resume", upload.single("resume"), async (req, res) => {
     const jdSoftSkills = SKILLS.soft.filter((s) =>
       exactSkillMatch(s, jd)
     );
+
+    if (jdHardSkills.length + jdTools.length + jdSoftSkills.length < 3) {
+  return res.status(400).json({
+    success: false,
+    message:
+      "Job description does not contain enough skill keywords. Please paste a detailed JD."
+  });
+}
+
 
     /* ===== RESUME MATCHING ===== */
     const hardSkillsMatched = jdHardSkills.filter((s) =>
@@ -166,16 +184,27 @@ const toolsScore =
   jdTools.length ? (toolsMatched.length / jdTools.length) * 100 : 100;
 const softSkillsScore =
   jdSoftSkills.length ? (softSkillsMatched.length / jdSoftSkills.length) * 100 : 100;
-const missingSectionsScore = missingSections.length === 0 ? 100 : 80;
+// const missingSectionsScore = missingSections.length === 0 ? 100 : 80;
+const missingSectionsPenalty = missingSections.length * 10;
+const missingSectionsScore = Math.max(50, 100 - missingSectionsPenalty);
 
 /* Weighted overall score */
-const overallResumeScore = Math.round(
-  0.4 * searchabilityScore +
-  0.2 * hardSkillsScore +
-  0.15 * toolsScore +
-  0.15 * softSkillsScore +
-  0.1 * missingSectionsScore
+let overallResumeScore = Math.round(
+  // 0.4 * searchabilityScore +
+  // 0.2 * hardSkillsScore +
+  // 0.15 * toolsScore +
+  // 0.15 * softSkillsScore +
+  // 0.1 * missingSectionsScore
+    0.45 * searchabilityScore +   // JD keyword alignment (MOST important)
+  0.25 * hardSkillsScore +      // core skills
+  0.15 * toolsScore +           // tools & tech
+  0.05 * softSkillsScore +      // soft skills (low weight)
+  0.10 * missingSectionsScore   // structure
 );
+
+if (searchabilityScore < 20) {
+  overallResumeScore = Math.min(overallResumeScore, 45);
+}
 
     /* ===== RESPONSE ===== */
     res.json({

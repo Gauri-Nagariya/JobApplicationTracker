@@ -702,7 +702,7 @@ const ResumePage = () => {
           {/* Hard Skills */}
           <Card
             title="Hard Skills"
-            className="w-full max-w-3xl bg-gray-800 text-white md:!mb-0 !mb-2 rounded-lg shadow-md"
+            className="w-full max-w-full bg-gray-800 text-white md:!mb-0 !mb-2 rounded-lg shadow-md"
           >
             <p className="font-semibold">Matched:</p>
             <Space wrap>
@@ -730,7 +730,7 @@ const ResumePage = () => {
           {/* Soft Skills */}
           <Card
             title="Soft Skills"
-            className="w-full max-w-3xl bg-gray-800 text-white rounded-lg shadow-md  md:!mb-0 !mb-2"
+            className="w-full max-w-full bg-gray-800 text-white rounded-lg shadow-md  md:!mb-0 !mb-2"
           >
             <p className="font-semibold">Matched:</p>
             <Space wrap>
@@ -758,7 +758,7 @@ const ResumePage = () => {
           {/* Tools / Technologies */}
           <Card
             title="Tools / Technologies"
-            className="w-full max-w-3xl bg-gray-800 text-white rounded-lg shadow-md  md:!mb-0 !mb-2"
+            className="w-full max-w-full bg-gray-800 text-white rounded-lg shadow-md  md:!mb-0 !mb-2"
           >
             <p className="font-semibold">Matched:</p>
             <Space wrap>
@@ -786,7 +786,7 @@ const ResumePage = () => {
           {/* Missing Sections */}
           <Card
             title="Missing Sections"
-            className="w-full max-w-3xl bg-gray-800 text-white rounded-lg shadow-md"
+            className="w-full max-w-full bg-gray-800 text-white rounded-lg shadow-md"
           >
             {analysis.missingSections.length ? (
               analysis.missingSections.map((section) => (

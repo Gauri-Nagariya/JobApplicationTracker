@@ -128,6 +128,9 @@ const Nav = () => {
 
         {!user && (
           <>
+           <li>
+              <Link to="/">Home</Link>
+            </li>
             <li>
               <Link to="/Dashboard">Dashboard</Link>
             </li>
@@ -191,6 +194,11 @@ const Nav = () => {
 
         {!user && (
           <>
+           <li>
+              <Link to="/" onClick={() => setMenuOpen(false)}>
+                Home
+              </Link>
+            </li>
             <li>
               <Link to="/Dashboard" onClick={() => setMenuOpen(false)}>
                 Dashboard
