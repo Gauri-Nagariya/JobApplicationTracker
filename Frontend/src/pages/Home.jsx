@@ -213,6 +213,185 @@
 // export default Home;
 
 
+// import React, { useContext } from "react";
+// import "../index.css";
+// import { Link } from "react-router-dom";
+// import bgDashboard from "../assets/bg3.jpg";
+// import { AuthContext } from "../context/AuthContext";
+
+// const Home = () => {
+//   const { user } = useContext(AuthContext);
+//   console.log("Nav user:", user);
+
+//   return (
+//     <div
+//       style={{
+//         minHeight: "100vh",
+//         width: "100%",
+//         backgroundImage: `url(${bgDashboard})`,
+//         backgroundSize: "cover",
+//         backgroundPosition: "center",
+//         backgroundRepeat: "no-repeat",
+//         backgroundAttachment: "fixed",
+//         justifyContent: "center",
+//         alignItems: "center",
+//       }}
+//     >
+//       <div className="glass pt-30 md:pt-0">
+//         {/* ===== HERO SECTION ===== */}
+//         <div className="flex flex-col md:flex-row w-full h-fit">
+//           {/* Left side: text */}
+//           <div className="flex-1 flex flex-col text-start w-full md:w-[50vw] py-16 md:py-30 px-6 md:px-16">
+//             <h1 className="text-4xl sm:text-5xl md:text-7xl text-white font-bold leading-tight md:leading-18 text-center md:text-left">
+//               Take Charge of <br />
+//               Your Career, Fully <br />
+//               Organized and <br />
+//               One Step Ahead.
+//             </h1>
+
+//             <p className="text-white text-lg sm:text-xl md:text-2xl mt-6 max-w-lg text-center md:text-left">
+//               Finding your dream job can be overwhelming—but managing your
+//               applications doesn’t have to be. Track applications, deadlines,
+//               interviews, and follow-ups effortlessly in one place. Stay
+//               organized, stay prepared, and take control of your career journey
+//               with ease.
+//             </p>
+//           </div>
+
+//           {/* Right side: buttons */}
+//           <div className="flex flex-col w-full md:w-[50vw] py-16 md:py-60 h-full items-center">
+//             <Link
+//               to={user ? "/profile" : "/register"}
+//               className="
+//                 relative inline-block w-fit my-2 px-8 py-4 rounded-full
+//                 bg-white text-black font-semibold
+//                 border border-white
+//                 transition-all duration-300 ease-out
+//                 hover:scale-102
+//                 hover:-rotate-4
+//                 hover:shadow-[0_0_12px_rgba(56,128,135,0.6),0_0_30px_rgba(56,128,135,0.4)]
+//                 hover:border-[#fbfeff]
+//               "
+//             >
+//               GET STARTED ➜
+//             </Link>
+
+//             <a
+//               href="#about"
+//               className="relative inline-block w-fit my-4 px-16 py-4 rounded-full
+//                 bg-black text-white font-semibold
+//                 transition-all duration-300 ease-out
+//                 hover:scale-102
+//                 hover:-rotate-4
+//                 hover:shadow-[0_0_18px_rgba(255,255,255,0.6),0_0_30px_rgba(255,255,255,0.4)]
+//                 scroll-smooth"
+//             >
+//               ABOUT
+//             </a>
+//           </div>
+//         </div>
+
+//         {/* ===== ABOUT SECTION ===== */}
+//         <div
+//           id="about"
+//           className="w-full px-6 md:px-12 py-20 space-y-20 scroll-smooth"
+//         >
+//           {/* About Project */}
+//           <div className="max-w-5xl mx-auto rounded-3xl p-10 bg-white/6 shadow-2xl transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_0_18px_rgba(255,255,255,0.3),0_0_10px_rgba(255,255,255,0.2)]">
+//             <h2 className="text-3xl md:text-4xl font-semibold text-white mb-6">
+//               About the Project
+//             </h2>
+
+//             <p className="text-white/90 leading-relaxed text-xl">
+//               The CareerBoard is a centralized platform built to
+//               simplify and organize the entire job search process. Instead of
+//               managing multiple spreadsheets, notes, and emails, users can
+//               store, track, and update all job applications in one secure place.
+//               The application helps users stay consistent, avoid missed
+//               deadlines, and focus more on interview preparation and skill
+//               development.
+//             </p>
+//           </div>
+
+//           {/* How It Works */}
+//           <div className="max-w-6xl mx-auto">
+//             <h2 className="text-3xl md:text-4xl font-semibold text-white mb-12 text-center">
+//               How It Works
+//             </h2>
+
+//             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+//               {[
+//                 {
+//                   title: "1. Add Applications",
+//                   desc:
+//                     "Users can add job applications with company name, role, experience level, resume, cover letter, and application date.",
+//                 },
+//                 {
+//                   title: "2. Track Progress",
+//                   desc:
+//                     "Each application has a clear status such as Applied, Interview Scheduled, Offer Received, or Rejected.",
+//                 },
+//                 {
+//                   title: "3. Stay Organized",
+//                   desc:
+//                     "By keeping everything in one dashboard, users avoid missed deadlines and reduce stress.",
+//                 },
+//               ].map((item, i) => (
+//                 <div
+//                   key={i}
+//                   className="rounded-2xl p-8 bg-white/6 shadow-2xl transition-all duration-300 hover:scale-[1.01] hover:-translate-y-2 hover:shadow-[0_0_18px_rgba(255,255,255,0.3),0_0_10px_rgba(255,255,255,0.2)]"
+//                 >
+//                   <h3 className="text-xl font-semibold text-white mb-4">
+//                     {item.title}
+//                   </h3>
+//                   <p className="text-white/90 leading-relaxed">{item.desc}</p>
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+
+//           {/* Tech Stack */}
+//           <div className="max-w-5xl mx-auto rounded-3xl p-10 bg-white/6 shadow-2xl transition-all duration-300 hover:scale-[1.01] hover:-translate-y-2 hover:shadow-[0_0_18px_rgba(255,255,255,0.3),0_0_10px_rgba(255,255,255,0.2)]">
+//             <h2 className="text-3xl md:text-4xl font-semibold text-white mb-8">
+//               Technology Stack
+//             </h2>
+
+//             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-white">
+//               <div>
+//                 <p className="text-lg font-semibold">Frontend</p>
+//                 <p className="text-white/80">React.js, Tailwind CSS</p>
+//               </div>
+//               <div>
+//                 <p className="text-lg font-semibold">Backend</p>
+//                 <p className="text-white/80">Node.js, Express.js</p>
+//               </div>
+//               <div>
+//                 <p className="text-lg font-semibold">Database</p>
+//                 <p className="text-white/80">MongoDB (Atlas)</p>
+//               </div>
+//               <div>
+//                 <p className="text-lg font-semibold">
+//                   Authentication & Tools
+//                 </p>
+//                 <p className="text-white/80">
+//                   JWT Authentication, Axios, Ant Design
+//                 </p>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Home;
+
+
+
+
+
+
 import React, { useContext } from "react";
 import "../index.css";
 import { Link } from "react-router-dom";
@@ -250,11 +429,7 @@ const Home = () => {
             </h1>
 
             <p className="text-white text-lg sm:text-xl md:text-2xl mt-6 max-w-lg text-center md:text-left">
-              Finding your dream job can be overwhelming—but managing your
-              applications doesn’t have to be. Track applications, deadlines,
-              interviews, and follow-ups effortlessly in one place. Stay
-              organized, stay prepared, and take control of your career journey
-              with ease.
+             Job hunting can be stressful—but managing your applications shouldn’t be. CareerBoard helps you track, manage, and analyze your job applications in one powerful dashboard. From application status to resume performance, everything stays organized so you can focus on what truly matters: landing the right role.
             </p>
           </div>
 
@@ -303,13 +478,10 @@ const Home = () => {
             </h2>
 
             <p className="text-white/90 leading-relaxed text-xl">
-              The CareerBoard is a centralized platform built to
-              simplify and organize the entire job search process. Instead of
-              managing multiple spreadsheets, notes, and emails, users can
-              store, track, and update all job applications in one secure place.
-              The application helps users stay consistent, avoid missed
-              deadlines, and focus more on interview preparation and skill
-              development.
+              CareerBoard is a full-stack job application tracking and resume analysis platform designed to simplify the modern job search process. Instead of juggling spreadsheets, emails, and folders, users can manage all their applications, resumes, and cover letters in one secure and structured system.
+        <br/>
+        <br/>
+              CareerBoard is a full-stack job application tracking and resume analysis platform designed to simplify the modern job search process. Instead of juggling spreadsheets, emails, and folders, users can manage all their applications, resumes, and cover letters in one secure and structured system.
             </p>
           </div>
 
@@ -322,19 +494,19 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
-                  title: "1. Add Applications",
+                  title: "1. Add & Organize Applications",
                   desc:
-                    "Users can add job applications with company name, role, experience level, resume, cover letter, and application date.",
+                    "Create and manage job applications with company details, role, experience level, dedicated resume, cover letter, and application date—all in one place.",
                 },
                 {
-                  title: "2. Track Progress",
+                  title: "2. Track Progress & Documents",
                   desc:
-                    "Each application has a clear status such as Applied, Interview Scheduled, Offer Received, or Rejected.",
+                    "Manually update application status (Applied, Interview, Offer, Rejected), view or download resumes and cover letters used for each application, and stay fully in control.",
                 },
                 {
-                  title: "3. Stay Organized",
+                  title: "3. Analyze & Improve",
                   desc:
-                    "By keeping everything in one dashboard, users avoid missed deadlines and reduce stress.",
+                    "Upload your resume and paste a job description to get skill-matching insights, missing keywords, and analytics to improve your chances before applying.",
                 },
               ].map((item, i) => (
                 <div
@@ -359,7 +531,7 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-white">
               <div>
                 <p className="text-lg font-semibold">Frontend</p>
-                <p className="text-white/80">React.js, Tailwind CSS</p>
+                <p className="text-white/80">React.js, Vite, Ant Design, Tailwind CSS, Framer Motion</p>
               </div>
               <div>
                 <p className="text-lg font-semibold">Backend</p>
@@ -374,7 +546,7 @@ const Home = () => {
                   Authentication & Tools
                 </p>
                 <p className="text-white/80">
-                  JWT Authentication, Axios, Ant Design
+                  JWT Authentication, Axios, Resume Parsing, Text Similarity Analysis
                 </p>
               </div>
             </div>
