@@ -380,7 +380,33 @@ const fuzzySoftSkillMatch = (skill, text) => {
 };
 
 /* ================= ROUTE ================= */
-router.post("/analyze-resume", upload.single("resume"), async (req, res) => {
+// router.post("/analyze-resume", upload.single("resume"), async (req, res) => {
+
+  router.post("/analyze-resume", (req, res) => { upload.single("resume")(req, res, async (err) => {
+    if (err instanceof multer.MulterError) {
+      if (err.code === "LIMIT_FILE_SIZE") {
+        return res.status(400).json({
+          success: false,
+          message: "File too large. Max size allowed is 5MB.",
+        });
+      }
+
+      return res.status(400).json({
+        success: false,
+        message: err.message || "Invalid file upload",
+      });
+    }
+
+    if (err) {
+      return res.status(400).json({
+        success: false,
+        message: "File upload failed",
+      });
+    }
+
+    // ✅ YOUR EXISTING LOGIC CONTINUES HERE
+
+
   const { jobDescription } = req.body;
   const file = req.file;
   const MIN_JD_LENGTH = 100;
@@ -519,6 +545,6 @@ router.post("/analyze-resume", upload.single("resume"), async (req, res) => {
           : "Significant skill gaps detected — aligning closer to the JD will improve ATS performance",
     },
   });
-});
+  })});
 
 export default router;
