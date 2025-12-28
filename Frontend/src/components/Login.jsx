@@ -202,7 +202,8 @@ const login = () => {
           One Place To Track All Your Opportunity
         </p>
         <p className="text-lg px-20 py-4">
-          No more table and raws
+          {/* No more table and raws */}
+          No more spreadsheets—everything in one place.
         </p>
       </div>
 
