@@ -54,8 +54,8 @@ const allowedOrigins = [
 
 const corsOptions = {
   origin: function (origin, callback) {
-    // if (!origin) return callback(null, true); // Postman
-        if (!origin) return callback(new Error("Not allowed by CORS")); // block server-to-server requests if you want
+    if (!origin) return callback(null, true); // Postman
+        // if (!origin) return callback(new Error("Not allowed by CORS")); // block server-to-server requests if you want
     if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {

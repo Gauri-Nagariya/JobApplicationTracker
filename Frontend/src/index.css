@@ -23,6 +23,14 @@ body {
   background-repeat: no-repeat;
 } */
 
+:root {
+  --ant-font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+  font-family: var(--ant-font-family) !important;
+}
 
 .glass {
   background: rgba(0, 0, 0, 0.58);           /* softer transparency */
