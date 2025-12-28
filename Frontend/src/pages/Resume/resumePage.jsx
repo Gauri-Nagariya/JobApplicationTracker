@@ -610,7 +610,27 @@ const ResumePage = () => {
 
           {/* Upload button */}
           <Upload
-            beforeUpload={() => false}
+            // beforeUpload={() => false}
+            accept=".pdf,.docx"
+  beforeUpload={(file) => {
+    const isAllowed =
+      file.type === "application/pdf" ||
+      file.type ===
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+
+    if (!isAllowed) {
+      message.error("Only PDF and DOCX files are allowed");
+      return Upload.LIST_IGNORE;
+    }
+
+    const isLt5M = file.size / 1024 / 1024 < 5;
+    if (!isLt5M) {
+      message.error("File must be smaller than 5MB");
+      return Upload.LIST_IGNORE;
+    }
+
+    return false; // prevent auto upload
+  }}
             fileList={fileList}
             onChange={({ fileList }) => setFileList(fileList.slice(-1))}
               className="!text-white"
