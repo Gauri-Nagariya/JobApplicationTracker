@@ -8,9 +8,9 @@ import auth from "../middlewares/auth.js"; // ✅ IMPORT THIS
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("User route working");
-});
+// router.get("/", (req, res) => {
+//   res.send("User route working");
+// });
 
 //--------------------------------------REGISTER---------------------------
 router.get("/register", (req, res) => {

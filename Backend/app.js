@@ -76,6 +76,10 @@ app.use(cookieParser());
 const PORT = process.env.PORT || 5000;
 connectDB();
 
+app.get("/", (req, res) => {
+  res.status(200).send("Backend is running 🚀");
+});
+
 app.use('/', userRoute)
 app.use('/', auth, homeRoute)
 app.use('/', auth, profileRoute)
