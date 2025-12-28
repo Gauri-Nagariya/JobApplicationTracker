@@ -47,8 +47,9 @@ app.use(express.urlencoded({extended:true}));
 
 const allowedOrigins = [
   // "https://job-application-tracker-ruby-ten.vercel.app",
-  "https://job-application-tracker-peach-seven.vercel.app",
+  // "https://job-application-tracker-peach-seven.vercel.app",
   // "http://localhost:5173",
+  "https://job-application-tracker-lemon-eight.vercel.app"
 ];
 
 const corsOptions = {
