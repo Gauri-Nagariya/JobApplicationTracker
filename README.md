@@ -1,168 +1,200 @@
-<body>
+<div align="center">
 
-<h1>🎯 Career Board – Personal Job Application Tracker</h1>
+# 🎯 CareerBoard — Job Application Tracker
 
-<p>
-A full-stack job application management platform that helps users track job applications,
-manage resumes and cover letters per application, analyze resume–JD fit, and gain analytics
-to improve job search outcomes.
-</p>
+### A full-stack MERN application to manage, track, and optimize your job search
 
-<hr />
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-View%20App-black?style=for-the-badge)](https://job-application-tracker-lemon-eight.vercel.app)
+[![React](https://img.shields.io/badge/React-Vite-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Deployed on Vercel](https://img.shields.io/badge/Frontend-Vercel-000?style=for-the-badge&logo=vercel)](https://vercel.com/)
 
-<h2>🚀 Live Demo</h2>
-<p>
-👉 <a href="https://job-application-tracker-lemon-eight.vercel.app" target="_blank">
-View Live Project
-</a>
-</p>
+</div>
 
-<hr />
+---
 
-<h2>✨ Core Features</h2>
+## 📌 Overview
 
-<ul>
-  <li>User Authentication (Register / Login)</li>
-  <li>Create and manage personal profile</li>
-  <li>Add and manage job applications</li>
-  <li>Manual application status tracking</li>
-  <li>Search, sort, and filter job applications</li>
-  <li>Application analytics and statistics</li>
-  <li>Resume Analyzer with Job Description matching</li>
-</ul>
+**CareerBoard** is a full-stack job application management platform that helps users track every application, manage resumes and cover letters, analyze resume–JD fit using AI-style scoring, and gain insights to improve their job search outcomes.
 
-<hr />
+Built as a real-world MERN project with JWT authentication, file uploads, and REST APIs.
 
-<h2>📂 Job Application Management</h2>
+---
 
-<ul>
-  <li>Add multiple job applications</li>
-  <li>Manually update application status (Applied, Interview, Offer, Rejected, etc.)</li>
-  <li>Search applications by company, role, or status</li>
-  <li>Sort applications by date, company name, or status</li>
-  <li>Filter applications to quickly find specific entries</li>
-</ul>
+## ✨ Features
 
-<hr />
+### 🔐 Authentication
+- User registration and login with JWT-based auth
+- Personal profile creation and management
 
-<h2>📄 Resume & Cover Letter Management</h2>
+### 📋 Job Application Management
+- Add and manage multiple job applications
+- Manually track application status — Applied, Interview, Offer, Rejected, and more
+- Search applications by company, role, or status
+- Sort by date, company name, or status
+- Filter to quickly find specific entries
 
-<p>
-Each job application can have its own dedicated resume and cover letter.
-</p>
+### 📄 Resume & Cover Letter Management
+- Upload a unique resume and cover letter per application
+- View which documents were used for each job
+- Download resumes and cover letters for any application
+- Manage multiple resume versions across applications
 
-<ul>
-  <li>Upload a specific resume for a particular job application</li>
-  <li>Upload a specific cover letter for the same application</li>
-  <li>View which resume and cover letter were used for each job</li>
-  <li>Download resumes and cover letters for any application</li>
-  <li>Manage multiple resume versions across applications</li>
-</ul>
+### 🧠 Resume Analyzer
+- Upload a resume (PDF / DOCX) and paste a job description
+- ATS-style resume scoring
+- Skill match analysis against the job description
+- Missing skills identification
+- Searchability and keyword alignment score
+- Actionable improvement suggestions
 
-<hr />
+### 📊 Analytics & Insights
+- Total applications overview
+- Status-wise distribution breakdown
+- Resume match percentage
+- Recruiter-friendly resume insights
 
-<h2>🧠 Resume Analyzer</h2>
+---
 
-<p>
-Users can upload a resume (PDF/DOCX) and paste a job description to analyze job fit.
-</p>
+## 🛠️ Tech Stack
 
-<ul>
-  <li>ATS-style resume scoring</li>
-  <li>Skill match analysis against job description</li>
-  <li>Missing skills identification</li>
-  <li>Searchability and keyword alignment score</li>
-  <li>Actionable improvement suggestions</li>
-</ul>
+**Frontend**
 
-<hr />
+| Tech | Purpose |
+|---|---|
+| React.js (Vite) | UI framework |
+| Ant Design | Component library |
+| Tailwind CSS | Utility styling |
+| Framer Motion | Animations |
+| Axios | HTTP client |
+| React Router | Client-side routing |
 
-<h2>📊 Analytics & Insights</h2>
+**Backend**
 
-<ul>
-  <li>Total job applications overview</li>
-  <li>Status-wise application distribution</li>
-  <li>Resume match percentage</li>
-  <li>Recruiter-friendly resume insights</li>
-</ul>
+| Tech | Purpose |
+|---|---|
+| Node.js + Express.js | Server & REST API |
+| MongoDB + Mongoose | Database & ODM |
+| JWT | Authentication |
+| Multer | File uploads |
+| PDF & DOCX Parsing | Resume analysis |
 
-<hr />
+---
 
-<h2>🛠 Tech Stack</h2>
+## 📂 Project Structure
 
-<h3>Frontend</h3>
-<ul>
-  <li>React.js (Vite)</li>
-  <li>Ant Design</li>
-  <li>Tailwind CSS</li>
-  <li>Framer Motion</li>
-  <li>Axios</li>
-  <li>React Router</li>
-</ul>
-
-<h3>Backend</h3>
-<ul>
-  <li>Node.js</li>
-  <li>Express.js</li>
-  <li>MongoDB & Mongoose</li>
-  <li>JWT Authentication</li>
-  <li>Multer (File Uploads)</li>
-  <li>PDF & DOCX Parsing</li>
-</ul>
-
-<hr />
-
-<h2>📁 Project Structure</h2>
-
-<pre>
-Career-Board/
+```
+JobApplicationTracker/
+├── Frontend/               # React + Vite client
+│   ├── src/
+│   │   ├── components/     # Reusable UI components
+│   │   ├── pages/          # Route-level pages
+│   │   ├── context/        # Auth & global state
+│   │   └── utils/          # Axios config, helpers
+│   └── package.json
 │
-├── frontend/   (React + Vite)
-├── backend/    (Node + Express)
-└── README.html
-</pre>
+├── Backend/                # Node.js + Express server
+│   ├── controllers/        # Route handler logic
+│   ├── models/             # Mongoose schemas
+│   ├── routes/             # API route definitions
+│   ├── middleware/         # Auth, file upload middleware
+│   └── package.json
+│
+└── README.md
+```
 
-<hr />
+---
 
-<h2>⚙️ Installation</h2>
+## 🚀 Getting Started
 
-<h3>Backend</h3>
-<pre>
-cd backend
+### Prerequisites
+
+- Node.js `v18+`
+- MongoDB (local or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
+- npm
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Gauri-Nagariya/JobApplicationTracker.git
+cd JobApplicationTracker
+```
+
+### 2. Backend Setup
+
+```bash
+cd Backend
 npm install
-npm run dev
-</pre>
+```
 
-<h3>Frontend</h3>
-<pre>
-cd frontend
+Create a `.env` file in `/Backend`:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+```
+
+```bash
+npm run dev
+```
+
+Backend runs on [http://localhost:5000](http://localhost:5000)
+
+### 3. Frontend Setup
+
+```bash
+cd ../Frontend
 npm install
+```
+
+Create a `.env` file in `/Frontend`:
+
+```env
+VITE_API_URL=http://localhost:5000
+```
+
+```bash
 npm run dev
-</pre>
+```
 
-<hr />
+Frontend runs on [http://localhost:5173](http://localhost:5173)
 
-<h2>🎯 Who Is This For?</h2>
+---
 
-<ul>
-  <li>Students and freshers</li>
-  <li>Job seekers managing multiple applications</li>
-  <li>Developers improving resumes using real JDs</li>
-</ul>
+## 🌐 API Overview
 
-<hr />
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/api/auth/register` | Register a new user |
+| `POST` | `/api/auth/login` | Login and get JWT token |
+| `GET` | `/api/applications` | Get all applications |
+| `POST` | `/api/applications` | Add a new application |
+| `PUT` | `/api/applications/:id` | Update application status |
+| `DELETE` | `/api/applications/:id` | Delete an application |
+| `POST` | `/api/resume/analyze` | Analyze resume against a JD |
 
-<h2>👩‍💻 Author</h2>
+---
 
-<p>
-Developed by <strong>Gauri</strong><br />
-Frontend / MERN Stack Developer
-</p>
+## 🎯 Who Is This For?
 
-<hr />
+- Students and freshers entering the job market
+- Job seekers managing multiple applications at once
+- Developers who want to optimize their resume against real job descriptions
 
-<p align="center">
-⭐ If you like this project, give it a star on GitHub!
-</p>
+---
 
-</body>
+## 📬 Contact
+
+**Gauri Nagariya** — Full-Stack / MERN Developer
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Gauri%20Nagariya-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/gauri-nagariya/)
+[![GitHub](https://img.shields.io/badge/GitHub-Gauri--Nagariya-181717?style=flat&logo=github)](https://github.com/Gauri-Nagariya)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visit%20Site-ff69b4?style=flat&logo=vercel)](https://gaurinagariyaportfolio.vercel.app/)
+
+---
+
+<div align="center">
+  <sub>Built with ❤️ by Gauri Nagariya &nbsp;|&nbsp; ⭐ Star this repo if you found it useful!</sub>
+</div>
